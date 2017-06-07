@@ -1,7 +1,18 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import Checkbox from "../components/Checkbox"
 const { action } = require('@storybook/addon-actions');
+import { style } from "typestyle"
+
+const defaultStyles = style({
+  fontFamily: "Helvetica"
+})
+
+addDecorator((story) => (
+  <div className={defaultStyles}>
+    {story()}
+  </div>
+))
 
 storiesOf('Checkbox', module)
   .add('checked with text', () => (
