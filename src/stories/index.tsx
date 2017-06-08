@@ -5,7 +5,7 @@ const { action } = require('@storybook/addon-actions');
 import { style } from "typestyle"
 
 const defaultStyles = style({
-  fontFamily: "Helvetica"
+  fontFamily: "lato"
 })
 
 addDecorator((story) => (
@@ -16,8 +16,8 @@ addDecorator((story) => (
 
 storiesOf('Checkbox', module)
   .add('checked with text', () => (
-    <Checkbox isChecked={true} label="Hello" onChange={action('clicked')}></Checkbox>
+    <Checkbox isChecked={true} label="Missing cancelling" onChange={action('clicked')}></Checkbox>
   ))
   .add('unchecked with text', () => (
-    <Checkbox isChecked={false} label="Hello" onChange={action('clicked')}></Checkbox>
-  ));
+    <Checkbox isChecked={false} label="Missing cancelling" onChange={action('clicked')}></Checkbox>
+  ))

@@ -1,50 +1,7 @@
 import { uniqueId } from "lodash"
 import * as React from "react"
-import { style, classes } from "typestyle"
-import { gray5, gray13, blue, white} from  "./Colors"
-
-const controlClassName = style({
-  lineHeight: "28px",
-  borderRadius: 3,
-  cursor: "pointer",
-  $nest: {
-    "&:hover": {
-      backgroundColor: gray13.toString()
-    }
-  }
-})
-
-const inputClassName = style({
-  width: "20px",
-  height: "20px",
-  border: `1px solid ${gray13.toString()}`,
-  backgroundColor: white.toString(),
-  borderRadius: "3px",
-  display: "inline-block",
-  verticalAlign: "middle",
-  cursor: "pointer",
-  appearance: "none"
-})
-
-const checkedInputClassName = style({
-  backgroundColor: blue.toString(),
-  $nest: {
-    "&:active": {
-      backgroundColor: blue.toString()
-    }
-  } 
-})
-
-const labelClassName = style({
-  display: "inline-block",
-  fontSize: "15px",
-  fontWeight: 700,
-  paddingLeft: "10px",
-  verticalAlign: "middle",
-  color: gray5.toString(),
-  cursor: "pointer",
-  marginBottom: 0
-})
+import { classes } from "typestyle"
+import * as styles from "./Checkbox.styles" 
 
 export interface CheckboxProps {
   label: string
@@ -61,18 +18,18 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
   render() {
     const { label, isChecked, onChange } = this.props
     return (
-      <div className={controlClassName}>
+      <div className={styles.control}>
         <input
           id={this.id}
           className={classes(
-            inputClassName,
-            isChecked && checkedInputClassName
+            styles.input,
+            isChecked && styles.checkedInput
           )}
           type="checkbox"
           checked={isChecked}
           onChange={(e) => onChange(e.target.checked)}
         />
-        <label htmlFor={this.id} className={labelClassName}>
+        <label htmlFor={this.id} className={styles.label}>
           {label}
         </label>
       </div>
